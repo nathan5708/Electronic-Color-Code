@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model GreeneCodeChallenge.Models.ColorHome
+
+@using (Html.BeginForm("CalculateOhmValue", "Home", FormMethod.Post))
+{
+  
+<p>First Band: </p><div>@Html.DropDownListFor(x => x.BandAColor,Model.Colors)</div>
+<p>Second Band: </p><div>@Html.DropDownListFor(x => x.BandBColor,Model.Colors)</div>
+<p>Multiplier: </p><div>@Html.DropDownListFor(x => x.BandCColor, Model.Colors)</div>
+<p>Tolerance: </p><div>@Html.DropDownListFor(x => x.BandDColor, Model.Colors)</div>
+<input type="submit" value="Calculate" />
+if(!String.IsNullOrEmpty(Model.result)){
+    <p>Value: @Model.result +/- @Model.tolerance %</p>
+}
+
+}
